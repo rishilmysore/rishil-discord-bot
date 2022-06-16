@@ -27,34 +27,31 @@ module.exports = {
                 // console.log(interaction.member.voice.channel);
                 let channel = interaction.member.voice.channel;
                 let sb = new SoundBoard
-                if (interaction.customId.includes('AUGH')) {
-                    await interaction.reply({content: 'Playing: AUGHHHHHH'});
-                    await sb.play(channel, "shortaughh");
-                    await wait(1000);
-                    await interaction.deleteReply();
+                if (!channel) {
+                    await interaction.reply({ephemeral: true, content: 'Bro, join the voice channel instead of being a creep...'}) 
                 }
-                else if (interaction.customId.includes('HEHEHEHAW')) {
-                    await interaction.reply({content: 'Playing: HEHEHEHAW'});
-                    await sb.play(channel, "heheheha");
-                    await wait(1000);
-                    await interaction.deleteReply();
-                }
-                else if (interaction.customId.includes('gigachad')) {
-                    await interaction.reply({content: 'Playing: Gigachad'});
-                    await sb.play(channel, "gigachad");
-                    await wait(1000);
-                    await interaction.deleteReply();
-                }
-                else if (interaction.customId.includes('discordjoin')) {
-                    await interaction.reply({content: 'Playing: Join'});
-                    await sb.play(channel, "discord-sounds");
-                    await wait(1000);
-                    await interaction.deleteReply();
-                }
-                else if (interaction.customId.includes('bong')) {
-                    await interaction.reply({content: 'Playing: Bong'});
-                    await sb.play(channel, "taco-bell-bong-sfx");
-                    await wait(1000);
+                else {
+                    if (interaction.customId.includes('AUGH')) {
+                        await interaction.reply({content: 'Playing: AUGHHHHHH'});
+                        await sb.play(channel, "shortaughh");
+                    }
+                    else if (interaction.customId.includes('HEHEHEHAW')) {
+                        await interaction.reply({content: 'Playing: HEHEHEHAW'});
+                        await sb.play(channel, "heheheha");
+                    }
+                    else if (interaction.customId.includes('gigachad')) {
+                        await interaction.reply({content: 'Playing: Gigachad'});
+                        await sb.play(channel, "gigachad");
+                    }
+                    else if (interaction.customId.includes('discordjoin')) {
+                        await interaction.reply({content: 'Playing: Join'});
+                        await sb.play(channel, "discord-sounds");                        
+                    }
+                    else if (interaction.customId.includes('bong')) {
+                        await interaction.reply({content: 'Playing: Bong'});
+                        await sb.play(channel, "taco-bell-bong-sfx");
+                    }
+                    //await wait(500);
                     await interaction.deleteReply();
                 }
             }

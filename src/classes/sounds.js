@@ -17,11 +17,6 @@ module.exports = {
     })
     
     let Sound = array.find(c => c.name === sound)
-    
-    if(Sound) {
-      return Sound
-    } else {
-      return false
-    }
+    return (Sound ? Sound : false)
   }
 }
